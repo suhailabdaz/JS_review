@@ -37,3 +37,4 @@ async function ase(){
 ase()
 
 console.log("asyncncncncn");
+
