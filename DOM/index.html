@@ -6,8 +6,15 @@
   <title>Document</title>
 </head>
 <body>
-  <h1 id="title-one">ijnsdjkfn</h1>
-  <script src="./index.js"></script> <!-- Move script here -->
-
+  <button id="button"  style="background-color: blue; height: 2cm; width: 2cm;">click</button>
+  <input id="check"  type="checkbox"> check</input>
+  <script>
+    const button = document.getElementById('button')
+    button.addEventListener('click',changeSelcted)
+    function changeSelcted(){
+        const checkBox = document.getElementById('check')
+        checkBox.checked = checkBox.checked == true ? false : true
+    }
+  </script>
 </body>
 </html>
