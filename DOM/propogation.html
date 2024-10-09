@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="divvvvv">
+  <div class="grandparent" style="background-color: red; display: flex; justify-content: center; align-items: center; height: 5cm; width: 5cm;">
+    grandparent
+    <div class="parent" style="background-color: green; display: flex; justify-content: center; align-items: center; height: 3cm; width: 3cm">
+      parent
+      <div class="child" style="background-color: blue; display: flex; justify-content: center; align-items: center; height: 1cm; width: 1cm;">
+        child
+      </div>
+    </div>
+  </div>
+
+  <button>click2</button>
+  <button>click1</button>
+  <button>click3</button>
+
+  <div>
+  </div>
+    <input type="search" style="margin-top: 12px;">
+  </div>
+  <script>
+    const grandparent = document.querySelector('.grandparent')
+    const parent = document.querySelector('.parent')
+    const child = document.querySelector('.child')
+
+      // grandparent.addEventListener('click',(event) =>{
+      //   alert('grandparent clicked')
+      // })
+
+      // parent.addEventListener('click',(event) =>{
+      //   alert('parent clicked')
+      // })
+
+      // child.addEventListener('click',(event)=>{
+      //   event.stopPropagation()
+      //   alert('child clicked')
+      // })
+
+    // const div = document.querySelector('#divvvvv')
+
+    grandparent.addEventListener('click',event=>{
+      const target = event.target
+      if(target.tagName == 'DIV'){
+        alert(target.innerText)
+      }
+    })
+      
+  </script>
+</body>
+</html>

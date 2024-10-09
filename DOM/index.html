@@ -15,6 +15,9 @@
         const checkBox = document.getElementById('check')
         checkBox.checked = checkBox.checked == true ? false : true
     }
+    button.addEventListener('contextmenu',(event)=>{
+      event.preventDefault()
+    })
   </script>
 </body>
 </html>
