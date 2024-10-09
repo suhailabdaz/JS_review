@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input class="inn" type="search" style="margin-top: 12px;">
+  <p >default : <span id="default" ></span></p>
+  <p >thrott.. :<span id="thrott" ></span></p>
+  <p >debou.. :<span id="debou" ></span></p>
+</body>
+<script>
+
+const debounce = (func,delay)=>{
+    let timeout
+    return function (...args){
+      clearTimeout(timeout)
+      timeout = setTimeout(()=>{
+        func.apply(this,args)
+      },delay)
+    }
+  }
+
+  const throttle = (func,delay)=>{
+    let lastRan = false
+    return function (...args){
+      if (!lastRan) {
+      func.apply(this, args);
+      lastRan = true;
+      setTimeout(() => {
+        lastRan = false; 
+      }, delay);
+    }
+    }
+  }
+
+  const input = document.querySelector('.inn')
+  const def = document.getElementById('default')
+  const thrott = document.getElementById('thrott')
+  const deb = document.getElementById('debou')
+
+  input.addEventListener('input',event=>{
+    def.textContent = event.target.value
+  })
+
+  const debouncedInputHandler = debounce((event) => {
+    deb.textContent = event.target.value;
+}, 1000);
+
+const throttleInput = throttle((event) => {
+    thrott.textContent = event.target.value;
+}, 1000);
+
+  input.addEventListener('input', debouncedInputHandler);
+  input.addEventListener('input', throttleInput);
+
+
+
+</script>
+</html>
