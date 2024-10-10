@@ -11,3 +11,5 @@ function expect(val){
 }
 
 console.log(expect(5).notToBe(8))
+
+console.log(expect(5).toBe(8))
